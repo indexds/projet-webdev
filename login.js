@@ -55,6 +55,6 @@ function validateForm() {
 
     if (login_content !== '' && password_content !== '') {
         responseElement.innerHTML = "";
-        loginUser(); // Assuming loginUser() is defined elsewhere
+        loginUser(); 
     }
 }

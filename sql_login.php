@@ -7,23 +7,14 @@ $db_passwd = "";
 $db_name = "users";
 
 $post = json_decode(file_get_contents('php://input'), true);
+
 $login = $post["login"];
-if (!isset($login) || empty($login)) {
-    $error = "Invalid login.";
-    echo json_encode(array("error" => $error));
-    die();
-}
 $passwd = $post["password"];
-if (!isset($passwd) || empty($passwd)) {
-    $error = "Invalid Password.";
-    echo json_encode(array("error" => $error));
-    die();
-}
 
 $conn = new mysqli($db_server, $db_user, $db_passwd, $db_name);
 
 if ($conn->connect_error) {
-    echo json_encode(array("error" => "Couldn't connect to database!"));
+    echo json_encode("Couldn't connect to database!");
     die();
 }
 
