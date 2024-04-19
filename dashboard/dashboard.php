@@ -6,7 +6,7 @@
 </head>
 
 <body>
-
+    <img src="piste.jpg" alt= "Failed to load image.">
 </body>
 
 <script async src="/projet-webdev/dashboard/dashboard.js"></script>
