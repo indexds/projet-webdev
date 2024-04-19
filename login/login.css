@@ -57,12 +57,6 @@ h1 {
     color:#fff;
 }
 
-.response {
-    color: red;
-    font-size: 0.8rem;
-    padding: 5px;
-}
-
 .button-container {
     display: flex;
     justify-content: center;
@@ -70,4 +64,18 @@ h1 {
 
 input.invalid{
     border: 2px solid red;
+}
+
+.response {
+    color: red;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.response.invalid {
+    color: red;
+}
+
+.response.valid {
+    color: #00a400;
 }

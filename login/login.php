@@ -2,7 +2,7 @@
 
 <head>
     <title>Station 💩</title>
-    <link href="login.css" rel="stylesheet" type="text/css" />
+    <link href="/projet-webdev/login/login.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -14,9 +14,9 @@
         <input type="text" placeholder="Login" name="login" id="login">
         <input type="password" placeholder="Password" name="password" id="password">
 
-        <button class="button-container" onclick=validateForm()>Login</button>
+        <button class="button-container" onclick=validateLogin()>Login</button>
         <button class="button-container" onclick=goToRegister()>Register</button>
     </div>
 </body>
-<script async src = "login.js"></script>
+<script async src = "/projet-webdev/login/login.js"></script>
 </html>

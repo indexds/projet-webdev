@@ -2,7 +2,7 @@
 
 <head>
     <title>Station 💩</title>
-    <link href="register.css" rel="stylesheet" type="text/css" />
+    <link href="/projet-webdev/register/register.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -16,9 +16,9 @@
         <input type="password" placeholder="Password" name="password" id="password">
         <input type="password" placeholder="Confirm Password" name="confirm-password" id="confirm-password">
 
-        <button class="button-container" onclick="validateForm()">Register</button>
+        <button class="button-container" onclick="validateRegister()">Register</button>
         <button class="button-container" onclick="goToLogin()">Login</button>
     </div>
 </body>
-<script async src="register.js"></script>
+<script async src="/projet-webdev/register/register.js"></script>
 </html>

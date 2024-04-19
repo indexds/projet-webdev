@@ -18,11 +18,16 @@ if ($conn->connect_error) {
     die();
 }
 
-$reqwest = "SELECT login from users WHERE login = '$login' AND password = '$passwd'";
-$result = $conn->query($reqwest);
+//Reqwest
+$reqwest = $conn->prepare("SELECT password from users WHERE login = ?");
+$reqwest->bind_param("s", $login);
+$reqwest->execute();
+$reqwest->store_result();
+$reqwest->bind_result($hash);
+$reqwest->fetch();
 
-$row = $result->fetch_assoc();
-if ($row && $row["login"] == $login) {
+
+if ($reqwest->num_rows() > 0 && password_verify($passwd, $hash)) {
     echo json_encode("Login Successful!");
 } else {
     echo json_encode("Invalid credentials!");
