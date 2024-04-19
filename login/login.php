@@ -6,8 +6,7 @@
 </head>
 
 <body>
-    <div class="header">
-    </div>
+    <div class="header"></div>
     <div class="login-container">
         <h1>Station 💩</h1>
         <strong><div class="response" id="response"></div></strong>

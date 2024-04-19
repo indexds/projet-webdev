@@ -1,13 +1,13 @@
 <html>
 
 <head>
-    <title>WazeLite</title>
+    <title>Station 💩</title>
     <link href="/projet-webdev/dashboard/dashboard.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <img src="piste.jpg" alt= "Failed to load image.">
+    <div class="header"></div>
+    <div id="pistes"></div>
 </body>
-
-<script async src="/projet-webdev/dashboard/dashboard.js"></script>
+<script async src = "/projet-webdev/dashboard/dashboard.js"></script>
 </html>

@@ -20,11 +20,14 @@ function checkField(field){
 
 function validateRegister() {
 
-    if (checkField("login") && checkField("password") && checkField("confirm-password")){
+    let login = checkField("login")
+    let password = checkField("password");
+    let confirm_password = checkField("confirm-password");
+
+    if (login && password && confirm_password){
         let password = document.getElementById("password");
         let confirm_password = document.getElementById("confirm-password");
         let response = document.getElementById("response");
-
 
         if (password.value.trim() != confirm_password.value.trim()) {
             response.innerHTML = "Passwords do not match";

@@ -19,7 +19,10 @@ function checkField(field) {
 }
 
 function validateLogin() {
-    if(checkField("login") && checkField("password")){
+    let login = checkField("login");
+    let password = checkField("password");
+
+    if(login && password){
         loginUser();
     }
 }

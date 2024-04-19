@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 $db_server = "localhost";
 $db_user = "root";
 $db_passwd = "";
-$db_name = "users";
+$db_name = "station_kaka";
 
 $post = json_decode(file_get_contents('php://input'), true);
 
