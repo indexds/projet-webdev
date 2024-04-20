@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Station 💩</title>
+    <title>Station 💩 - Login</title>
     <link href="/projet-webdev/login/login.css" rel="stylesheet" type="text/css" />
 </head>
 

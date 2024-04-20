@@ -4,10 +4,15 @@ html {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #3d536c;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+/* CSS for divs in the HTML */
+#remontees div {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f5f5f5;
 }
 
 /* The switch - the box around the slider */
@@ -64,6 +69,44 @@ input:checked+.slider:before {
 .slider.round {
     border-radius: 34px;
 }
+
 .slider.round:before {
     border-radius: 50%;
+}
+
+button {
+    width: 10%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #0062cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #01448f;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    background-color: #1a1f1f;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

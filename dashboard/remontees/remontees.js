@@ -1,8 +1,8 @@
-async function getPistes() {
+async function getRemontees() {
     let pistes = document.getElementById("pistes");
     let xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "/projet-webdev/sql/sql_getPistes.php", true);
+    xhr.open("GET", "/projet-webdev/sql/sql_getRemontees.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = async function () {
@@ -12,20 +12,20 @@ async function getPistes() {
                 let html = '';
 
                 response.forEach(function (piste) {
-                    html += "<div>" + piste.id + "</div>";
                     html += "<div>" + piste.name + "</div>";
                     html += "<div>" + piste.color + "</div>";
-                    html += "<div>" + piste.state + "</div>";
                     html += '<label class="switch"><input type="checkbox" piste-id="' + piste.id + '" ' + (piste.state === '1' ? 'checked' : '') + '><span class="slider round"></span></label>';
+                    html += "<br>";
                 });
-                await(sleep(300));
+
+                await (sleep(200));
                 pistes.innerHTML = html;
 
-                // Attach event listeners to checkboxes
                 let checkboxes = document.querySelectorAll("#pistes input[type='checkbox']");
+
                 checkboxes.forEach(function (checkbox) {
                     checkbox.addEventListener('change', function () {
-                        updatePisteState(this.getAttribute("piste-id"), this.checked);
+                        updateRemonteeState(this.getAttribute("piste-id"), this.checked);
                     });
                 });
             }
@@ -35,12 +35,11 @@ async function getPistes() {
     xhr.send();
 }
 
-//black magic
-function sleep(ms){
+function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function updatePisteState(pisteId, newState) {
+async function updateRemonteeState(pisteId, newState) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/projet-webdev/sql/sql_updateState.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -53,8 +52,6 @@ async function updatePisteState(pisteId, newState) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log("Piste state updated successfully!");
-                // Reload pistes data and refresh UI
                 getPistes();
             } else {
                 console.error("Failed to update piste state:", xhr.status);
@@ -64,4 +61,9 @@ async function updatePisteState(pisteId, newState) {
 
     xhr.send(JSON.stringify(request));
 }
-getPistes();
+
+function goToPistes() {
+    window.location.href = "/projet-webdev/dashboard/pistes";
+}
+
+getRemontees();

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Station 💩</title>
+    <title>Station 💩 - Register</title>
     <link href="/projet-webdev/register/register.css" rel="stylesheet" type="text/css" />
 </head>
 
