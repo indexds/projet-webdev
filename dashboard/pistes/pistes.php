@@ -14,26 +14,27 @@
 </head>
 
 <body>
+    <div class="margin">
+        <div id="pistes">
+            <div class="piste-divider">
+                <div class="piste-title">Pistes Vertes</div>
+                <div class="piste-type-container" id="pistes-vertes"></div>
+            </div>
 
-    <div id="pistes">
-        <div class="piste-divider">
-            <div class="piste-title">Pistes Vertes</div>
-            <div class="piste-type-container" id="pistes-vertes"></div>
-        </div>
+            <div class="piste-divider">
+                <div class="piste-title">Pistes Bleues</div>
+                <div class="piste-type-container" id="pistes-bleues"></div>
+            </div>
 
-        <div class="piste-divider">
-            <div class="piste-title">Pistes Bleues</div>
-            <div class="piste-type-container" id="pistes-bleues"></div>
-        </div>
+            <div class="piste-divider">
+                <div class="piste-title">Pistes Rouges</div>
+                <div class="piste-type-container" id="pistes-rouges"></div>
+            </div>
 
-        <div class="piste-divider">
-            <div class="piste-title">Pistes Rouges</div>
-            <div class="piste-type-container" id="pistes-rouges"></div>
-        </div>
-
-        <div class="piste-divider">
-            <div class="piste-title">Pistes Noires</div>
-            <div class="piste-type-container" id="pistes-noires"></div>
+            <div class="piste-divider">
+                <div class="piste-title">Pistes Noires</div>
+                <div class="piste-type-container" id="pistes-noires"></div>
+            </div>
         </div>
     </div>
 </body>

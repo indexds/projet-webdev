@@ -1,11 +1,9 @@
 <html>
 
 <head>
-    <title>Station 💩 - Remontées</title>
-    <link href="/projet-webdev/dashboard/remontees/remontees.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
+    <title>Station 💩 - Pistes</title>
+    <link href="/projet-webdev/dashboard/pistes/pistes.css" rel="stylesheet" type="text/css" />
+    <link href="/projet-webdev/dashboard/pistes/switch.css" rel="stylesheet" type="text/css" />
     <div class="header">
         <div class="buttons">
             <button id="refresh" onclick="getRemontees()">Refresh</button>
@@ -13,8 +11,13 @@
             <button id="logout" onclick="logout()">Logout</button>
         </div>
     </div>
-    <div id="remontees"></div>
+</head>
 
+<body>
+    <div class="margin">
+        <div id="remontees"></div>
+    </div>
 </body>
-<script async src = "/projet-webdev/dashboard/remontees/remontees.js"></script>
+
+<script async src = "/projet-webdev/dashboard/pistes/pistes.js"></script>
 </html>

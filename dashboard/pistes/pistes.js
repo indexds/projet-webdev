@@ -6,7 +6,7 @@ async function getPistes() {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "/projet-webdev/sql/sql_getPistes.php", true);
+    xhr.open("GET", "/projet-webdev/sql/getPistes.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = async function () {
@@ -18,11 +18,13 @@ async function getPistes() {
 
                 response.forEach(function (piste) {
                     let html = `<div class="piste-container">
-                                <div class="piste-texte">${piste.name}</div>
-                                <label class="switch">
-                                    <input type="checkbox" piste-id="${piste.id}" ${piste.state === '1' ? 'checked' : ''}>
-                                    <span class="slider round"></span>
-                                </label>
+                                    <div class="piste-texte">${piste.name}</div>
+                                    <div class="switch-position">
+                                        <label class="switch">
+                                            <input type="checkbox" piste-id="${piste.id}" ${piste.state === '1' ? 'checked' : ''}>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
                                 </div>`;
 
                     switch (piste.color) {
@@ -69,7 +71,7 @@ function sleep(ms){
 
 async function updatePisteState(pisteId, newState) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/projet-webdev/sql/sql_updateState.php", true);
+    xhr.open("POST", "/projet-webdev/sql/updatePisteState.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     let request = {
@@ -92,6 +94,10 @@ async function updatePisteState(pisteId, newState) {
 
 function goToRemontees(){
     window.location.href = "/projet-webdev/dashboard/remontees";
+}
+
+function logout(){
+    window.location.href = "/projet-webdev/login";
 }
 
 getPistes();

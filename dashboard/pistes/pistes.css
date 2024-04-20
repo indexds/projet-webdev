@@ -6,11 +6,13 @@ html {
 }
 
 #pistes div {
+    position: relative;
     display: inline-block;
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: #f5f5f5;
+
 }
 
 button {
@@ -53,31 +55,14 @@ button:active {
     border-radius: 10px;
 }
 
-.piste-container{
-    display: flex;
-    justify-content: center;
-
-}
-
-.piste-texte{
-    align-items: top;
-}
-
-.piste-type-container{
-    display: flex;
-    align-items: top;
-    justify-content: space-between;
-    box-sizing: border-box;
+.piste-divider {
+    float: left;
     width: 300px;
-    padding: 20px;
-    text-align: center;
-    background-color: #1a1f1f;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    padding: 50px;
 }
 
 .piste-title{
-    align-items: top;
     width: 280px;
     font-size: 40px;
     text-align: center;
@@ -88,10 +73,33 @@ button:active {
     border-radius: 10px;
 }
 
-.piste-divider{
-    align-items: top;
+.piste-type-container {
+    box-sizing: border-box;
     width: 300px;
-    margin: 10px 0;
-    /*Center divider in .piste*/
-    padding: 75px;
+    padding: 20px;
+    text-align: center;
+    background-color: #1a1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.piste-container {
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.piste-texte {
+    width: 50%;
+    vertical-align: middle;
+
+}
+
+.margin{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.switch-position{
+    vertical-align: middle;
 }

@@ -51,6 +51,10 @@ button:hover {
     background-color: #01448f;
 }
 
+button:active {
+    background-color: #012e6b;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 2rem;
