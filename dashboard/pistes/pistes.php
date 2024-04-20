@@ -1,9 +1,10 @@
 <html>
 
 <head>
-    <title>Station 💩 - Pistes</title>
+    <title>Station Kaka - Pistes</title>
     <link href="/projet-webdev/dashboard/pistes/pistes.css" rel="stylesheet" type="text/css" />
     <link href="/projet-webdev/dashboard/pistes/switch.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💩</text></svg>">
     <div class="header">
         <div class="buttons">
             <button id="refresh" onclick="getPistes()">Refresh</button>

@@ -74,4 +74,8 @@ function goToPistes() {
     window.location.href = "/projet-webdev/dashboard/pistes";
 }
 
+function logout(){
+    window.location.href = "/projet-webdev/login";
+}
+
 getRemontees();

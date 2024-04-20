@@ -22,7 +22,7 @@ function validateLogin() {
     let login = checkField("login");
     let password = checkField("password");
 
-    if(login && password){
+    if (login && password) {
         loginUser();
     }
 }
@@ -49,11 +49,11 @@ function loginUser() {
                 let response = JSON.parse(xhr.responseText);
                 response_element.innerHTML = response;
 
-                if(response === "Login Successful!"){
+                if (response === "Login Successful!") {
                     response_element.classList.add('valid');
                     window.location.href = "/projet-webdev/dashboard/";
                 }
-                else if (response === "Invalid credentials!"){
+                else if (response === "Invalid credentials!") {
                     response_element.classList.add('invalid');
                     login.classList.add('invalid');
                     password.classList.add('invalid');
