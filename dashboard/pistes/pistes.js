@@ -1,4 +1,6 @@
-async function getPistes() {
+import { displayPosts } from "/projet-webdev/sql/posts/posts.js";
+
+export async function getPistes() {
     let pistes_vertes = document.getElementById("pistes-vertes");
     let pistes_bleues = document.getElementById("pistes-bleues");
     let pistes_rouges = document.getElementById("pistes-rouges");
@@ -25,7 +27,7 @@ async function getPistes() {
                                             <span class="slider round"></span>
                                         </label>
                                     </div>
-                                    <div class="comment-svg"><img src="comment.svg" width="auto" height="auto" onclick=displayPosts()></div>
+                                    <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts()"></div>
                                 </div>`;
 
                     switch (piste.color) {
@@ -44,13 +46,11 @@ async function getPistes() {
                     }
                 });
 
-                await (sleep(200));
+                await sleep(200);
                 pistes_vertes.innerHTML = html_vertes;
                 pistes_bleues.innerHTML = html_bleues;
                 pistes_rouges.innerHTML = html_rouges;
                 pistes_noires.innerHTML = html_noires;
-
-
 
                 let checkboxes = document.querySelectorAll("#pistes input[type='checkbox']");
 
@@ -66,11 +66,11 @@ async function getPistes() {
     xhr.send();
 }
 
-function sleep(ms){
+export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function updatePisteState(pisteId, newState) {
+export async function updatePisteState(pisteId, newState) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/projet-webdev/sql/pistes/updatePisteState.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -93,12 +93,14 @@ async function updatePisteState(pisteId, newState) {
     xhr.send(JSON.stringify(request));
 }
 
-function goToRemontees(){
+window.goToRemontees = function () {
     window.location.href = "/projet-webdev/dashboard/remontees";
-}
+};
 
-function logout(){
+window.logout = function () {
     window.location.href = "/projet-webdev/login";
-}
+};
+
+window.getPistes = getPistes;
 
 getPistes();
