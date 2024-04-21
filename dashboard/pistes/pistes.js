@@ -6,7 +6,7 @@ async function getPistes() {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "/projet-webdev/sql/getPistes.php", true);
+    xhr.open("GET", "/projet-webdev/sql/pistes/getPistes.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = async function () {
@@ -71,7 +71,7 @@ function sleep(ms){
 
 async function updatePisteState(pisteId, newState) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/projet-webdev/sql/updatePisteState.php", true);
+    xhr.open("POST", "/projet-webdev/sql/pistes/updatePisteState.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     let request = {

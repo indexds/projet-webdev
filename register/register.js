@@ -65,7 +65,7 @@ function registerUser() {
     };
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/projet-webdev/sql/register.php", true);
+    xhr.open("POST", "/projet-webdev/sql/auth/register.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {

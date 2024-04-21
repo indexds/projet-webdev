@@ -2,7 +2,7 @@ async function getRemontees() {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "/projet-webdev/sql/getRemontees.php", true);
+    xhr.open("GET", "/projet-webdev/sql/remontees/getRemontees.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = async function () {
@@ -65,7 +65,7 @@ function sleep(ms) {
 
 async function updateRemonteeState(remonteeId, newState) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/projet-webdev/sql/updateRemonteeState.php", true);
+    xhr.open("POST", "/projet-webdev/sql/remontees/updateRemonteeState.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     let request = {

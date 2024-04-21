@@ -45,7 +45,7 @@ function loginUser() {
     };
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/projet-webdev/sql/login.php", true);
+    xhr.open("POST", "/projet-webdev/sql/auth/login.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
