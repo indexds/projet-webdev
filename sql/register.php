@@ -17,10 +17,9 @@ if ($conn->connect_error) {
     echo json_encode("Couldn't connect to database!");
     die();
 }
-//Hashing
+
 $hash = password_hash($passwd, PASSWORD_DEFAULT);
 
-//SQL Injection prevention
 $reqwest = $conn->prepare("INSERT INTO users (login, password) VALUES (?, ?)");
 $reqwest->bind_param("ss", $login, $hash);
 

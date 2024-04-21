@@ -18,7 +18,6 @@ if ($conn->connect_error) {
     die();
 }
 
-//Reqwest
 $reqwest = $conn->prepare("SELECT password from users WHERE login = ?");
 $reqwest->bind_param("s", $login);
 $reqwest->execute();

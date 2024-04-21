@@ -13,17 +13,18 @@ if ($conn->connect_error) {
     die();
 }
 
-//Reqwest
-$reqwest = $conn->query("SELECT * from remontees");
+$reqwest = $conn->query("SELECT remontees.id, remontees.name AS remontee_name, remontees.state AS remontee_state, pistes.name AS piste_name, pistes.state AS piste_state FROM remontees LEFT JOIN join_table AS jt ON remontees.id = jt.id_remontee LEFT JOIN pistes ON jt.id_piste = pistes.id;");
 
 if ($reqwest->num_rows > 0) {
     while ($row = $reqwest->fetch_assoc()) {
-        // Output data of each row as HTML
+
         $pistes[] = array(
             "id" => $row["id"],
-            "name" => $row["name"],
-            "color" => $row["color"],
-            "state" => $row["state"]
+            "remontee_name" => $row["remontee_name"],
+            "remontee_state" => $row["remontee_state"],
+            "piste_name" => $row["piste_name"],
+            "piste_state" => $row["piste_state"]
+
         );
     }
 }

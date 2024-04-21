@@ -18,7 +18,7 @@ $reqwest = $conn->query("SELECT * from pistes");
 
 if ($reqwest->num_rows > 0) {
     while ($row = $reqwest->fetch_assoc()) {
-        // Output data of each row as HTML
+
         $pistes[] = array(
             "id" => $row["id"],
             "name" => $row["name"],

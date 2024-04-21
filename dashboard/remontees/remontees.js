@@ -9,12 +9,12 @@ async function getRemontees() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
-
+                console.log(response);
                 let html = '';
 
                 response.forEach(function (remontee) {
                     html += `<div class="remontee-container">
-                                    <div class="remontee-texte">${remontee.name}</div>
+                                    <div class="remontee-texte">${remontee.remontee_name}</div>
                                     <div class="switch-position">
                                         <label class="switch">
                                             <input type="checkbox" remontee-id="${remontee.id}" ${remontee.state === '1' ? 'checked' : ''}>
