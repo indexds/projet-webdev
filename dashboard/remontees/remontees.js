@@ -9,23 +9,39 @@ async function getRemontees() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
-                console.log(response);
                 let html = '';
 
-                response.forEach(function (remontee) {
-                    html += `<div class="remontee-container">
-                                    <div class="remontee-texte">${remontee.remontee_name}</div>
-                                    <div class="switch-position">
-                                        <label class="switch">
-                                            <input type="checkbox" remontee-id="${remontee.id}" ${remontee.state === '1' ? 'checked' : ''}>
-                                            <span class="slider round"></span>
-                                        </label>
+                let ids_seen = [];
+                response.forEach(async function (remontee) {
+                    if(!ids_seen.includes(remontee.id)){
+                        html += `<div class="remontee-piste-container">
+                                    <div class="remontee-container">
+                                        <div class="remontee-texte">${remontee.remontee_name}</div>
+                                        <div class="switch-position">
+                                            <label class="switch">
+                                                <input type="checkbox" remontee-id="${remontee.id}" ${remontee.remontee_state === '1' ? 'checked' : ''}>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
                                     </div>
+                                    <div class="remontee-container remontee-id-${remontee.id}"></div>
                                 </div>`;
+                        ids_seen.push(remontee.id);
+                    }
+
                 });
+
 
                 await sleep(200);
                 document.getElementById("remontees").innerHTML = html;
+
+
+                response.forEach(async function (remontee) {
+                    let remontee_container = document.querySelector(`.remontee-id-${remontee.id}`);
+                    remontee_container.innerHTML += `<div class="remontee-container remontee-id-${remontee.id} ${remontee.piste_state === '1' ? 'piste-green' : 'piste-red'}">
+                                                    ${remontee.piste_name}
+                                                    </div>`;
+                });
 
 
 
@@ -66,7 +82,7 @@ async function updateRemonteeState(remonteeId, newState) {
             }
         }
     };
-
+    console.log(JSON.stringify(request));
     xhr.send(JSON.stringify(request));
 }
 

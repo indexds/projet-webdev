@@ -8,7 +8,7 @@
     <div class="header">
         <div class="buttons">
             <button id="refresh" onclick="getRemontees()">Refresh</button>
-            <button id="remontees" onclick="goToPistes()">Pistes</button>
+            <button id="pistes" onclick="goToPistes()">Pistes</button>
             <button id="logout" onclick="logout()">Logout</button>
         </div>
     </div>
