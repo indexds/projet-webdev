@@ -41,5 +41,4 @@
 </body>
 
 <script async src="/projet-webdev/dashboard/pistes/pistes.js"></script>
-<script async src="/projet-webdev/dashboard/pistes/posts.js"></script>
 </html>

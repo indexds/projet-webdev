@@ -25,6 +25,7 @@ async function getPistes() {
                                             <span class="slider round"></span>
                                         </label>
                                     </div>
+                                    <div class="comment-svg"><img src="comment.svg" width="auto" height="auto" onclick=displayPosts()></div>
                                 </div>`;
 
                     switch (piste.color) {
