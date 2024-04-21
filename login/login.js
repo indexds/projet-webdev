@@ -2,6 +2,13 @@ function goToRegister() {
     window.location.href = "/projet-webdev/register/";
 }
 
+// Login if enter key pressed
+document.addEventListener( 'keydown', function( event ) {
+    if( event.key === "Enter" ) {
+        validateLogin();
+    }
+});
+
 function checkField(field) {
     let element = document.getElementById(field);
     let response_element = document.getElementById("response");
