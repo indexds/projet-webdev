@@ -10,7 +10,9 @@
         <div class="buttons">
             <button id="refresh" onclick="refresh()">Refresh</button>
             <button id="pistes" onclick="goToPistes()">Pistes</button>
+            <button id="chat" onclick="goToChat()">Chat</button>
             <button id="logout" onclick="logout()">Logout</button>
+
         </div>
     </div>
 </head>

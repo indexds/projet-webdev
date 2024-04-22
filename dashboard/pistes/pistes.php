@@ -10,6 +10,7 @@
         <div class="buttons">
             <button id="refresh" onclick="refresh()">Refresh</button>
             <button id="remontees" onclick="goToRemontees()">Remontées</button>
+            <button id="chat" onclick="goToChat()">Chat</button>
             <button id="logout" onclick="logout()">Logout</button>
         </div>
     </div>
@@ -40,5 +41,6 @@
         </div>
     </div>
 </body>
+
 <script type="module" src="/projet-webdev/dashboard/pistes/pistes.js"></script>
 </html>

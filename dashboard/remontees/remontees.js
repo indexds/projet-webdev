@@ -101,10 +101,16 @@ window.goToPistes = function() {
     window.location.href = "/projet-webdev/dashboard/pistes";
 }
 
+window.goToChat = function () {
+    window.location.href = "/projet-webdev/dashboard/chat";
+}
+
 window.logout = function () {
     localStorage.clear();
     window.location.href = "/projet-webdev/login";
 }
+
+
 
 window.displayPosts = displayPosts;
 

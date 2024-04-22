@@ -108,6 +108,10 @@ window.goToRemontees = function () {
     window.location.href = "/projet-webdev/dashboard/remontees";
 };
 
+window.goToChat = function () {
+    window.location.href = "/projet-webdev/dashboard/chat";
+}
+
 window.logout = function () {
     localStorage.clear();
     window.location.href = "/projet-webdev/login";
