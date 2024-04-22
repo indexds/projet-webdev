@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forbidden</title>
-    <src href="/projet-webdev/error/error.css" rel="stylesheet" type="text/css" />
+    <title>Page Interdite</title>
+    <link href="/projet-webdev/error/error.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>Forbidden</h1>
-<p>You do not have permission to access this page.</p>
+<div class="error">
+        <div class="title">403</div>
+        <div class="text">Vous n'avez pas le droit d'accéder à cette page.</div>
+    <button onclick="goToLogin()">Retour à l'accueil</button>
+</div>
 </body>
+
+<script async src="/projet-webdev/error/error.js"></script>
 </html>

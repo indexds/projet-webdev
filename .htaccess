@@ -1,4 +1,5 @@
-DirectoryIndex /projet-webdev/login/
+DirectoryIndex /projet-webdev/login
+Options -Indexes
 
 ErrorDocument 403 /projet-webdev/error/forbidden.php
 ErrorDocument 404 /projet-webdev/error/not_found.php

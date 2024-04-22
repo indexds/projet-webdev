@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Not Found</title>
-    <src href="/projet-webdev/error/error.css" rel="stylesheet" type="text/css" />
+    <title>Page Introuvable</title>
+    <link href="/projet-webdev/error/error.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>404</h1>
-<p>Page not found.</p>
+<div class="error">
+        <div class="title">404</div>
+        <div class="text">La page demandée n'existe pas.</div>
+    <button onclick="goToLogin()">Retour à l'accueil</button>
+</div>
 </body>
+
+<script async src="/projet-webdev/error/error.js"></script>
 </html>
