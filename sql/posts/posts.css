@@ -20,7 +20,8 @@
 .post-content {
     display: flex;
     text-align: left;
-    width: 100%;
+    padding: 1px;
+    width: 85%;
 }
 
 .date {
