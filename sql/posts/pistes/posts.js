@@ -65,9 +65,13 @@ export async function displayPosts(id) {
                             xhr.onreadystatechange = function () {
                                 if (xhr.readyState === XMLHttpRequest.DONE) {
                                     if (xhr.status === 200) {
-                                        console.log(xhr.responseText);
-                                        displayPosts(id);
-
+                                        if(xhr.responseText === "Invalid Token!"){
+                                            localStorage.clear();
+                                            window.location.href = "/projet-webdev/";
+                                        }
+                                        else{
+                                            displayPosts(id);
+                                        }
                                     }
                                 }
                             }
