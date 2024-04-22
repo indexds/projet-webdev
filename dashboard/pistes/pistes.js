@@ -1,4 +1,6 @@
-import { displayPosts } from "/projet-webdev/sql/posts/posts.js";
+import {displayPosts} from "/projet-webdev/sql/posts/pistes/posts.js"
+
+document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
 
 export async function getPistes() {
     let pistes_vertes = document.getElementById("pistes-vertes");
@@ -27,7 +29,8 @@ export async function getPistes() {
                                             <span class="slider round"></span>
                                         </label>
                                     </div>
-                                    <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts()"></div>
+                                    <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts(${piste.id})"></div>
+                                    <div id="post-container-${piste.id}"></div>
                                 </div>`;
 
                     switch (piste.color) {
@@ -98,9 +101,11 @@ window.goToRemontees = function () {
 };
 
 window.logout = function () {
+    localStorage.clear();
     window.location.href = "/projet-webdev/login";
 };
 
 window.getPistes = getPistes;
+window.displayPosts = displayPosts;
 
 getPistes();

@@ -58,8 +58,6 @@ button:active {
 }
 
 .remontee-piste-container {
-
-    float: left;
     box-sizing: border-box;
     width: 300px;
     padding: 20px;
@@ -87,7 +85,6 @@ button:active {
 }
 
 [class^="remontee-id-"]{
-    display: inline-block;
     width: 100%;
     text-align: center;
 
@@ -97,6 +94,7 @@ button:active {
     margin-left: 125px;
     margin-right: 125px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .switch-position {

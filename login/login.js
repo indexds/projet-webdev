@@ -54,13 +54,18 @@ function loginUser() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
-                response_element.innerHTML = response;
 
-                if (response === "Login Successful!") {
+                if (response.message === "Login Successful!") {
+                    response_element.innerHTML = response.message;
                     response_element.classList.add('valid');
                     window.location.href = "/projet-webdev/dashboard/";
+
+                    localStorage.setItem("user", loginData.login);
+                    localStorage.setItem("token", response.token);
+                    localStorage.setItem("token_expiration", response.token_expiration);
                 }
                 else if (response === "Invalid credentials!") {
+                    response_element.innerHTML = response;
                     response_element.classList.add('invalid');
                     login.classList.add('invalid');
                     password.classList.add('invalid');

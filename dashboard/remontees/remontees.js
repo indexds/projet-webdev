@@ -1,3 +1,7 @@
+import { displayPosts } from "/projet-webdev/sql/posts/remontees/posts.js";
+
+document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
+
 async function getRemontees() {
 
     let xhr = new XMLHttpRequest();
@@ -25,6 +29,8 @@ async function getRemontees() {
                                         </div>
                                     </div>
                                     <div class="remontee-container remontee-id-${remontee.id}"></div>
+                                    <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts(${remontee.id})"></div>
+                                    <div id="post-container-${remontee.id}"></div>
                                 </div>`;
                         ids_seen.push(remontee.id);
                     }
@@ -86,12 +92,15 @@ async function updateRemonteeState(remonteeId, newState) {
     xhr.send(JSON.stringify(request));
 }
 
-function goToPistes() {
+window.goToPistes = function() {
     window.location.href = "/projet-webdev/dashboard/pistes";
 }
 
-function logout(){
+window.logout = function () {
+    localStorage.clear();
     window.location.href = "/projet-webdev/login";
 }
+
+window.displayPosts = displayPosts;
 
 getRemontees();

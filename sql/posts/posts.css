@@ -1,0 +1,64 @@
+[id^=post-container-] {
+    overflow: hidden;
+    transition: height 0.25s ease-out;
+    background-color: #2e3333;
+    border-radius: 10px;
+    margin: 5px;
+
+}
+
+.post {
+    float: left;
+    display: flex;
+    width: 100%;
+    margin: 5px;
+    color: #f5f5f5;
+    font-weight: bold;
+}
+
+.post-content{
+    display: flex;
+    text-align: left;
+    padding: 1px;
+    width: 100%;
+}
+
+.date {
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+    color: #f5f5f5;
+}
+
+.user{
+    text-align: left;
+    float: left;
+    color: #f5f5f5;
+}
+
+.post-user-date {
+    display: flex;
+    width: 100%;
+    color: #f5f5f5;
+}
+
+.comment-input{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+    margin: 3px;
+}
+
+input:hover {
+    border: 2px solid #0062cc !important;
+}
+
+input:focus {
+    border: 2px solid #0062cc !important;
+}
+
+.comment-svg {
+    vertical-align: middle;
+    float: middle;
+    cursor: pointer;
+}
