@@ -1,1 +1,2 @@
 .vscode
+# should add /sql/config.php to prevent leaking database credentials
