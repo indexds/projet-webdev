@@ -96,6 +96,14 @@ export async function updatePisteState(pisteId, newState) {
     xhr.send(JSON.stringify(request));
 }
 
+window.refresh = function (){
+    document.getElementById("pistes-vertes").innerHTML = "";
+    document.getElementById("pistes-bleues").innerHTML = "";
+    document.getElementById("pistes-rouges").innerHTML = "";
+    document.getElementById("pistes-noires").innerHTML = "";
+    getPistes();
+}
+
 window.goToRemontees = function () {
     window.location.href = "/projet-webdev/dashboard/remontees";
 };

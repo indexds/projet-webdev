@@ -92,6 +92,11 @@ async function updateRemonteeState(remonteeId, newState) {
     xhr.send(JSON.stringify(request));
 }
 
+window.refresh = function(){
+    document.getElementById("remontees").innerHTML = "";
+    getRemontees();
+}
+
 window.goToPistes = function() {
     window.location.href = "/projet-webdev/dashboard/pistes";
 }
