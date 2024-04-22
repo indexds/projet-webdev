@@ -1,17 +1,13 @@
 <?php
 header('Content-Type: application/json');
 
-$db_server = "localhost";
-$db_user = "root";
-$db_passwd = "";
-$db_name = "station_kaka";
-
+include_once ($_SERVER["DOCUMENT_ROOT"] . "/projet-webdev/sql/config.php");
 
 $post = json_decode(file_get_contents('php://input'), true);
 
 $id_remontee = $post["id_remontee"];
 
-$conn = new mysqli($db_server, $db_user, $db_passwd, $db_name);
+$conn = new mysqli(DB_SERVER, DB_USER, DB_PASSWD, DB_NAME);
 
 if ($conn->connect_error) {
     echo json_encode("Couldn't connect to database!");
