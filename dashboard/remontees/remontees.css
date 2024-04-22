@@ -6,7 +6,7 @@ html {
 }
 
 #remontees div {
-    display:inline-table;
+    display: inline-block;
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
