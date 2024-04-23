@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die();
 }
 
-$reqwest = $conn->prepare("SELECT messages.id AS id, messages.content AS content, messages.date AS date, users.login AS login FROM messages JOIN users ON messages.id_user = users.id WHERE messages.id > ?");
+$reqwest = $conn->prepare("SELECT messages.id AS id, messages.content AS content, messages.date AS date, users.login AS login FROM messages JOIN users ON messages.id_user = users.id WHERE messages.id > ? ORDER BY date ASC");
 $reqwest->bind_param("i", $last_received_id);
 
 $messages = [];
