@@ -26,15 +26,22 @@ async function getMessages() {
                 let chat = document.getElementById("chat-box");
 
                 messages.forEach(function (message) {
-                    chat.innerHTML += `<div class="message">
-                                            <div class="message-user_date">
-                                                <div class="message-user">${message.login}</div>
-                                                <div class="message-date">${message.date}</div>
-                                            </div>
-                                            <div class="message-content">${message.content}</div>
-                                        </div>
-                                        `;
-                                        });
+                    let newMessage = document.createElement("div");
+                    newMessage.classList.add("message");
+                    newMessage.innerHTML = `
+                        <div class="message-user_date">
+                            <div class="message-user">${message.login}</div>
+                            <div class="message-date">${message.date}</div>
+                        </div>
+                        <div class="message-content">${message.content}</div>
+                    `;
+
+                    chat.appendChild(newMessage);
+                    // Adding class to trigger transition effect
+                    setTimeout(function () {
+                        newMessage.classList.add("message-enter-active");
+                    }, 10);
+                });
 
                 if (messages.length > 0) {
                     localStorage.setItem("last_received_id", parseInt(messages[messages.length - 1].id));
@@ -51,7 +58,7 @@ async function getMessages() {
     xhr.send(JSON.stringify({ "last_received_id": parseInt(localStorage.getItem("last_received_id")) }));
 }
 
-async function sendMessage(){
+async function sendMessage() {
     let input = document.getElementById("message-input").value;
 
     if (input === "") {
@@ -65,7 +72,7 @@ async function sendMessage(){
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                if(xhr.responseText === "Invalid token!"){
+                if (xhr.responseText === "Invalid token!") {
                     alert("Session expired, please reconnect.");
                     logout();
                 }
