@@ -16,6 +16,7 @@
 
 <body>
     <div id="chat-box"></div>
+    <input type="text" placeholder="Message.." id="message-input">
 </body>
 
 <script type="module" src="/projet-webdev/dashboard/chat/chat.js"></script>

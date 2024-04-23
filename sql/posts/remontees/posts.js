@@ -54,6 +54,7 @@ export async function displayPosts(id) {
                         if (e.key === 'Enter') {
 
                             if (localStorage.getItem("token_expiration") < Math.floor(Date.now() / 1000)) {
+                                alert("Session expired, please reconnect.");
                                 localStorage.clear();
                                 window.location.href = "/projet-webdev/";
                             }
@@ -65,7 +66,9 @@ export async function displayPosts(id) {
                             xhr.onreadystatechange = function () {
                                 if (xhr.readyState === XMLHttpRequest.DONE) {
                                     if (xhr.status === 200) {
-                                        if (xhr.responseText === "Invalid Token!") {
+                                        if (xhr.responseText === "Invalid token!") {
+
+                                            alert("Session expired, please reconnect.");
                                             localStorage.clear();
                                             window.location.href = "/projet-webdev/";
 
