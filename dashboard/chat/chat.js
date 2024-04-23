@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (localStorage.getItem("last_received_id") === null) {
         localStorage.setItem("last_received_id", 0);
     }
+
     let input = document.getElementById("message-input");
     input.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
@@ -9,12 +10,14 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     });
     getMessages();
+    document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
 });
 
 async function getMessages() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/projet-webdev/sql/chat/getMessages.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.timeout = 0;
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -40,7 +43,7 @@ async function getMessages() {
                 getMessages();
             } else {
                 console.error("Failed to get messages:", xhr.status);
-                setTimeout(getMessages, 5000);
+                window.location.href = "/projet-webdev/dashboard/chat";
             }
         }
     };
@@ -91,7 +94,7 @@ window.goToRemontees = function () {
 window.refresh = function () {
     localStorage.removeItem("last_received_id");
     document.getElementById("chat-box").innerHTML = "";
-    getMessages();
+    window.location.href = "/projet-webdev/dashboard/chat";
 }
 
 window.logout = function () {
