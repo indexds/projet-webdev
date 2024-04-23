@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Station Kaka - Pistes</title>
+    <title>Station Kaka - Remontées</title>
     <link href="/projet-webdev/dashboard/remontees/remontees.css" rel="stylesheet" type="text/css" />
     <link href="/projet-webdev/dashboard/switch.css" rel="stylesheet" type="text/css" />
     <link href="/projet-webdev/sql/posts/posts.css" rel="stylesheet" type="text/css" />
