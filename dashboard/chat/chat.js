@@ -24,11 +24,14 @@ async function getMessages() {
 
                 messages.forEach(function (message) {
                     chat.innerHTML += `<div class="message">
-                                        <div class="message-user">${message.login}</div>
-                                        <div class="message-content">${message.content}</div>
-                                        <div class="message-date">${message.date}</div>
-                                    </div>`;
-                });
+                                            <div class="message-user_date">
+                                                <div class="message-user">${message.login}</div>
+                                                <div class="message-date">${message.date}</div>
+                                            </div>
+                                            <div class="message-content">${message.content}</div>
+                                        </div>
+                                        `;
+                                        });
 
                 if (messages.length > 0) {
                     localStorage.setItem("last_received_id", parseInt(messages[messages.length - 1].id));
