@@ -56,13 +56,24 @@ button:active {
 
 .remontee-piste-container {
     box-sizing: border-box;
+    overflow-y: scroll;
     width: 300px;
+    height: 250px;
     padding: 20px;
     margin: 10px;
     text-align: center;
     background-color: #1a1f1f;
     border-radius: 10px;
-    height: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #505555;
+    border-radius: 20px;
 }
 
 .remontee-container {

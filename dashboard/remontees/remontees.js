@@ -110,8 +110,6 @@ window.logout = function () {
     window.location.href = "/projet-webdev/login";
 }
 
-
-
 window.displayPosts = displayPosts;
 
 getRemontees();
