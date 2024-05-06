@@ -62,7 +62,6 @@ function loginUser() {
 
                     localStorage.setItem("user", loginData.login);
                     localStorage.setItem("token", response.token);
-                    localStorage.setItem("token_expiration", response.token_expiration);
                 }
                 else if (response === "Invalid credentials!") {
                     response_element.innerHTML = response;

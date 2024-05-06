@@ -26,7 +26,7 @@ $reqwest->fetch();
 if ($reqwest->num_rows() > 0 && password_verify($passwd, $hash)) {
     // Generate connection token
     $token = bin2hex(random_bytes(16));
-    $token_expiration = 12 * 60 * 60 + time();
+    $token_expiration = 20 + time();
 
     // Update user token in db
     $updateToken = $conn->prepare("UPDATE users SET token = ?, token_expiration = ? WHERE id = ?");
@@ -36,8 +36,7 @@ if ($reqwest->num_rows() > 0 && password_verify($passwd, $hash)) {
     // Prepare the response
     $response = [
         "message" => "Login Successful!",
-        "token" => $token,
-        "token_expiration" => $token_expiration
+        "token" => $token
     ];
 
     echo json_encode($response);

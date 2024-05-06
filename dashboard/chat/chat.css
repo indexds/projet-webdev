@@ -7,15 +7,12 @@
     border-radius: 9px;
     opacity: 0;
     transform: translateY(-20px);
-    transition: opacity 0.3s, transform 0.3s;
-    /* Added border-color to transition */
     border: 2px solid transparent;
-    /* Added transparent border */
+
 }
 
 .message:hover {
     border-color: var(--button-color);
-    /* Change border color on hover */
 }
 
 .message-user_date {
@@ -72,4 +69,5 @@
 .message-enter-active {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
 }

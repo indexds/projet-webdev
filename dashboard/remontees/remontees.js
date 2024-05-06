@@ -1,6 +1,15 @@
 import { displayPosts } from "/projet-webdev/sql/posts/remontees/posts.js";
 
-document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
+
+window.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("user") === null || localStorage.getItem("token") === null) {
+        console.log(this.localStorage.getItem("user"), this.localStorage.getItem("token"));
+        window.location.href = "/projet-webdev/login";
+        return;
+    }
+
+    document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
+});
 
 async function getRemontees() {
 
@@ -13,12 +22,15 @@ async function getRemontees() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
-                let html = '';
-
                 let ids_seen = [];
+                let remontees = document.getElementById("remontees");
+                remontees.innerHTML = "";
+
                 response.forEach(async function (remontee) {
+                    let new_remontee = document.createElement("div");
                     if(!ids_seen.includes(remontee.id)){
-                        html += `<div class="remontee-piste-container">
+                        new_remontee.classList.add("remontee-piste-container");
+                        new_remontee.innerHTML = `
                                     <div class="remontee-container">
                                         <div class="remontee-texte">${remontee.remontee_name}</div>
                                         <div class="switch-position">
@@ -31,16 +43,16 @@ async function getRemontees() {
                                     <div class="remontee-container remontee-id-${remontee.id}"></div>
                                     <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts(${remontee.id})"></div>
                                     <div id="post-container-${remontee.id}"></div>
-                                </div>`;
+                                    `;
                         ids_seen.push(remontee.id);
+                        remontees.appendChild(new_remontee);
+
+                        setTimeout(function (){
+                            new_remontee.classList.add("remontee-piste-container-show");
+                        }, 10);
                     }
 
                 });
-
-
-                await sleep(200);
-                document.getElementById("remontees").innerHTML = html;
-
 
                 response.forEach(async function (remontee) {
                     let remontee_container = document.querySelector(`.remontee-id-${remontee.id}`);
@@ -48,8 +60,6 @@ async function getRemontees() {
                                                     ${remontee.piste_name}
                                                     </div>`;
                 });
-
-
 
                 let checkboxes = document.querySelectorAll("#remontees input[type='checkbox']");
 
@@ -82,13 +92,13 @@ async function updateRemonteeState(remonteeId, newState) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                getRemontees();
+                //nothing
             } else {
                 console.error("Failed to update remontee state:", xhr.status);
             }
         }
     };
-    console.log(JSON.stringify(request));
+
     xhr.send(JSON.stringify(request));
 }
 

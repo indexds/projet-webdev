@@ -26,6 +26,17 @@
     text-align: center;
     background-color: var(--box-color);
     border-radius: 10px;
+
+    /* TRANSITION*/
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.remontee-piste-container-show{
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
 }
 
 .remontee-container {

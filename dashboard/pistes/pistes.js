@@ -1,6 +1,13 @@
 import {displayPosts} from "/projet-webdev/sql/posts/pistes/posts.js"
 
-document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
+window.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("user") === null || localStorage.getItem("token") === null) {
+        window.location.href = "/projet-webdev/login";
+        return;
+    }
+
+    document.getElementById("logout").innerHTML += ` (${localStorage.getItem("user")})`;
+});
 
 export async function getPistes() {
     let pistes_vertes = document.getElementById("pistes-vertes");
@@ -18,43 +25,43 @@ export async function getPistes() {
             if (xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
 
-                let [html_vertes, html_bleues, html_rouges, html_noires] = ['', '', '', ''];
-
                 response.forEach(function (piste) {
-                    let html = `<div class="piste-container">
-                                    <div class="piste-texte">${piste.name}</div>
-                                    <div class="switch-position">
-                                        <label class="switch">
-                                            <input type="checkbox" piste-id="${piste.id}" ${piste.state === '1' ? 'checked' : ''}>
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </div>
-                                    <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts(${piste.id})"></div>
-                                    <div id="post-container-${piste.id}"></div>
-                                </div>`;
+                    let new_piste = document.createElement("div");
+                    new_piste.classList.add("piste-container");
+
+                    new_piste.innerHTML =   `
+                                            <div class="piste-texte">${piste.name}</div>
+                                            <div class="switch-position">
+                                                <label class="switch">
+                                                    <input type="checkbox" piste-id="${piste.id}" ${piste.state === '1' ? 'checked' : ''}>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <div class="comment-svg"><img src="/projet-webdev/sql/posts/comment.svg" width="auto" height="auto" onclick="displayPosts(${piste.id})"></div>
+                                            <div id="post-container-${piste.id}"></div>
+                                            `;
+
 
                     switch (piste.color) {
                         case 'Verte':
-                            html_vertes += html;
+                            pistes_vertes.appendChild(new_piste);
                             break;
                         case 'Bleue':
-                            html_bleues += html;
+                            pistes_bleues.appendChild(new_piste);
                             break;
                         case 'Rouge':
-                            html_rouges += html;
+                            pistes_rouges.appendChild(new_piste);
                             break;
                         case 'Noire':
-                            html_noires += html;
+                            pistes_noires.appendChild(new_piste);
                             break;
                     }
+                    setTimeout(function () {
+                        new_piste.classList.add("piste-container-show");
+                    }, 10);
                 });
 
-                await sleep(200);
-                pistes_vertes.innerHTML = html_vertes;
-                pistes_bleues.innerHTML = html_bleues;
-                pistes_rouges.innerHTML = html_rouges;
-                pistes_noires.innerHTML = html_noires;
-
+                await sleep(200); //Timeout for the switch transition effect
                 let checkboxes = document.querySelectorAll("#pistes input[type='checkbox']");
 
                 checkboxes.forEach(function (checkbox) {
@@ -86,7 +93,7 @@ export async function updatePisteState(pisteId, newState) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                getPistes();
+                //nothing
             } else {
                 console.error("Failed to update piste state:", xhr.status);
             }

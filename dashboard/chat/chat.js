@@ -1,4 +1,13 @@
+window.addEventListener("beforeunload", function(){
+    localStorage.removeItem("last_received_id");
+});
+
 window.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("user") === null || localStorage.getItem("token") === null) {
+        window.location.href = "/projet-webdev/login";
+        return;
+    }
+
     if (localStorage.getItem("last_received_id") === null) {
         localStorage.setItem("last_received_id", 0);
     }
@@ -72,12 +81,13 @@ async function sendMessage() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                if (xhr.responseText === "Invalid token!") {
+
+                document.getElementById("message-input").value = "";
+                
+                if (JSON.parse(xhr.responseText) === "INVALID_TOKEN") {
                     alert("Session expired, please reconnect.");
                     logout();
                 }
-
-                document.getElementById("message-input").value = "";
 
             } else {
                 console.error("Failed to send message:", xhr.status);

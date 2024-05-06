@@ -17,16 +17,17 @@ if ($conn->connect_error) {
     die();
 }
 
+$time = time();
 //Checking user identity
-$reqwest = $conn->prepare("SELECT users.login FROM users WHERE users.token = ?");
-$reqwest->bind_param("s", $token);
+$reqwest = $conn->prepare("SELECT users.login FROM users WHERE users.token = ? AND ? < users.token_expiration");
+$reqwest->bind_param("si", $token, $time);
 $reqwest->execute();
 $reqwest->store_result();
 $reqwest->bind_result($resulting_login);
 $reqwest->fetch();
 
 if ($resulting_login != $login) {
-    echo json_encode("Invalid token!");
+    echo json_encode("INVALID_TOKEN");
     die();
 }
 

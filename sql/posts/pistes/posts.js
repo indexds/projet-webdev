@@ -53,11 +53,6 @@ export async function displayPosts(id) {
                     input.addEventListener('keypress', function (e) {
                         if (e.key === 'Enter') {
 
-                            if(localStorage.getItem("token_expiration") < Math.floor(Date.now()/1000)){
-                                localStorage.clear();
-                                window.location.href = "/projet-webdev/";
-                            }
-
                             let xhr = new XMLHttpRequest();
                             xhr.open("POST", "/projet-webdev/sql/posts/pistes/addPistePost.php", true);
                             xhr.setRequestHeader("Content-Type", "application/json");
@@ -65,13 +60,14 @@ export async function displayPosts(id) {
                             xhr.onreadystatechange = function () {
                                 if (xhr.readyState === XMLHttpRequest.DONE) {
                                     if (xhr.status === 200) {
-                                        if(xhr.responseText === "Invalid Token!"){
-                                            localStorage.clear();
-                                            window.location.href = "/projet-webdev/";
+
+                                        displayPosts(id);
+                                        
+                                        if (JSON.parse(xhr.responseText) === "INVALID_TOKEN") {
+                                            alert("Session expired, please reconnect.");
+                                            logout();
                                         }
-                                        else{
-                                            displayPosts(id);
-                                        }
+
                                     }
                                 }
                             }
