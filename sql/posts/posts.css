@@ -1,7 +1,17 @@
+:root {
+    --background-color: #404b5f;
+    --box-color: #1d2222e1;
+    --button-color: #6f7af0;
+    --button-hover: #6f7af0a6;
+    --button-active: #6f7af05b;
+
+}
+
 [id^=post-container-] {
     overflow: hidden;
+    margin-top: 5px;
     transition: height 0.25s ease-out;
-    background-color: #2e3333;
+    background-color: var(--background-color);
     border-radius: 10px;
 
     width: 100%;
@@ -52,11 +62,11 @@
 }
 
 input:hover {
-    border: 2px solid #0062cc !important;
+    border: 2px solid var(--button-hover) !important;
 }
 
 input:focus {
-    border: 2px solid #0062cc !important;
+    border: 2px solid var(--button-active) !important;
 }
 
 .comment-svg {

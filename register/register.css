@@ -1,9 +1,19 @@
+:root {
+    --background-color: #404b5f;
+    --box-color: #1d2222e1;
+    --button-color: #6f7af0;
+    --button-hover: #6f7af0a6;
+    --button-active: #6f7af05b;
+    --off: #6f7af05b;
+    --on: #6f7af0;
+}
+
 body,
 html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #3d536c;
+    background-color: var(--background-color);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -14,7 +24,7 @@ html {
     width: 300px;
     padding: 20px;
     text-align: center;
-    background-color: #1a1f1f;
+    background-color: var(--box-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,18 +40,18 @@ input[type="password"] {
 }
 
 input:hover {
-    border: 2px solid #0062cc !important;
+    border: 2px solid var(--button-hover) !important;
 }
 
 input:focus {
-    border: 2px solid #0062cc !important;
+    border: 2px solid var(--button-active) !important;
 }
 
 button {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background-color: #0062cc;
+    background-color: var(--button-color);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -50,11 +60,11 @@ button {
 }
 
 button:hover {
-    background-color: #01448f;
+    background-color: var(--button-hover);
 }
 
 button:active {
-    background-color: #012e6b;
+    background-color: var(--button-active);
 }
 
 h1 {
@@ -70,18 +80,18 @@ h1 {
 }
 
 input.invalid {
-    border: 2px solid red;
+    border: 2px solid var(--off);
 }
 
 .response {
-    color: red;
+    color: var(--off);
     font-size: 0.8rem;
     padding: 5px;
 }
 
 .response.invalid{
-    color: red;
+    color: var(--off);
 }
 .response.valid{
-    color: #00a400;
+    color: var(--on);
 }

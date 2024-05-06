@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Page Interdite</title>
     <link href="/projet-webdev/error/error.css" rel="stylesheet" type="text/css" />
+    <link href="/projet-webdev/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="error">
