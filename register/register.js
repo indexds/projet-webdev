@@ -9,6 +9,11 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+setTimeout(() => {
+    let register_container = document.getElementById("register-container");
+    register_container.classList.add("register-container-show");
+}, 10);
+
 
 function checkField(field){
     let element = document.getElementById(field);

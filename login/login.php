@@ -8,7 +8,7 @@
 
 <body>
     <div class="header"></div>
-    <div class="login-container">
+    <div id="login-container">
         <h1>Station 💩</h1>
         <strong><div class="response" id="response"></div></strong>
         <input type="text" placeholder="Login" name="login" id="login">

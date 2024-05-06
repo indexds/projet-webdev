@@ -48,7 +48,9 @@ async function getMessages() {
                     chat.appendChild(newMessage);
                     // Adding class to trigger transition effect
                     setTimeout(function () {
-                        newMessage.classList.add("message-enter-active");
+                        newMessage.classList.add("message-show");
+                        let messageInput = document.getElementById("message-input");
+                        messageInput.classList.add("message-show");
                     }, 10);
                 });
 
@@ -83,7 +85,7 @@ async function sendMessage() {
             if (xhr.status === 200) {
 
                 document.getElementById("message-input").value = "";
-                
+
                 if (JSON.parse(xhr.responseText) === "INVALID_TOKEN") {
                     alert("Session expired, please reconnect.");
                     logout();

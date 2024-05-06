@@ -5,9 +5,14 @@
     margin-top: 0.3%;
     width: 55%;
     border-radius: 9px;
+
+    /* Prevents div from moving when border is filled on hover */
+    border: 2px solid transparent;
+
+    /* Transition */
     opacity: 0;
     transform: translateY(-20px);
-    border: 2px solid transparent;
+
 
 }
 
@@ -51,11 +56,15 @@
 
     border-radius: 10px;
     background-color: #ffffff;
-    border: 1px solid #cccccc;
+    border: 2px solid #cccccc;
     padding: 5px;
 
     /*BLACKS MAGIC CENTERS THE DIV DO NOT TOUCH */
     display: block;
+
+    /* Transition */
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 #message-input:hover {
@@ -66,8 +75,8 @@
     border: 2px solid var(--button-color) !important;
 }
 
-.message-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s, transform 0.3s;
+.message-show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.3s, transform 0.3s !important;
 }

@@ -4,10 +4,18 @@ function goToRegister() {
 
 // Login if enter key pressed
 document.addEventListener( 'keydown', function( event ) {
-    if( event.key === "Enter" ) {
-        validateLogin();
+if( event.key === "Enter" ) {
+    validateLogin();
     }
 });
+
+//Animation
+setTimeout(() => {
+    let login_container = document.getElementById("login-container");
+    login_container.classList.add("login-container-show");
+}, 10);
+
+
 
 function checkField(field) {
     let element = document.getElementById(field);

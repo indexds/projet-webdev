@@ -60,9 +60,8 @@ export async function displayPosts(id) {
                             xhr.onreadystatechange = function () {
                                 if (xhr.readyState === XMLHttpRequest.DONE) {
                                     if (xhr.status === 200) {
-
                                         displayPosts(id);
-                                        
+
                                         if (JSON.parse(xhr.responseText) === "INVALID_TOKEN") {
                                             alert("Session expired, please reconnect.");
                                             logout();

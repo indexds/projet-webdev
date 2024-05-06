@@ -20,14 +20,25 @@ html {
     align-items: center;
 }
 
-.login-container {
+#register-container {
     width: 300px;
     padding: 20px;
     text-align: center;
     background-color: var(--box-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    opacity: 0.00000001;
+    transform: translateY(-20px);
 }
+
+.register-container-show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.3s, transform 0.3s !important;
+}
+
+
 
 input[type="text"],
 input[type="password"] {
