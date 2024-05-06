@@ -26,7 +26,7 @@ $reqwest->fetch();
 if ($reqwest->num_rows() > 0 && password_verify($passwd, $hash)) {
     // Generate connection token
     $token = bin2hex(random_bytes(16));
-    $token_expiration = 20 + time();
+    $token_expiration = 60 * 60 + time(); //Token lasts 1 hour
 
     // Update user token in db
     $updateToken = $conn->prepare("UPDATE users SET token = ?, token_expiration = ? WHERE id = ?");
